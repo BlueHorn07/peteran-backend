@@ -3,13 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UserModule } from './user/user.module';
-import { VeteranModule } from './veteran/veteran.module';
-import { PetModule } from './pet/pet.module';
-import { BoardModule } from './board/board.module';
-import { QuestionModule } from './question/question.module';
-import { AnswerModule } from './answer/answer.module';
-import { ReservationModule } from './reservation/reservation.module';
+import { UserModule } from './pateran/user/user.module';
+import { VeteranModule } from './pateran/veteran/veteran.module';
+import { PetModule } from './pateran/pet/pet.module';
+import { BoardModule } from './pateran/board/board.module';
+import { QuestionModule } from './pateran/question/question.module';
+import { AnswerModule } from './pateran/answer/answer.module';
+import { ReservationModule } from './pateran/reservation/reservation.module';
+import { ConsultItemModule } from './pateran/consult-item/consult-item.module';
 import configuration from './config/configurations';
 
 @Module({
@@ -29,6 +30,7 @@ import configuration from './config/configurations';
     QuestionModule,
     AnswerModule,
     ReservationModule,
+    ConsultItemModule,
   ],
   controllers: [AppController],
   providers: [AppService],
