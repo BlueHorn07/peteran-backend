@@ -22,12 +22,12 @@ export class VeteranEntity {
   phone: string;
 
   @Column({ nullable: true })
-  field: string[]; // 전문 분야
+  field: string; // 전문 분야
 
   @Column({ type: 'text', nullable: true })
   short_description: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'simple-array' })
   tag: string[];
 
   @CreateDateColumn()
