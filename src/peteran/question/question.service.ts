@@ -45,13 +45,14 @@ export class QuestionService {
     return this.questionRepo.find();
   }
 
-  findByKeywordContain(keyword: string) {
+  findByKeywordContain(keyword: string, take = 10) {
     const qb = this.questionRepo.createQueryBuilder();
 
     return qb
       .select('*')
       .where(`LOWER(title) LIKE '%${keyword.toLowerCase()}%'`)
       .orWhere(`LOWER(content) LIKE '%${keyword.toLowerCase()}%'`)
+      .limit(take)
       .getRawMany();
   }
 
