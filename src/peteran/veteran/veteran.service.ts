@@ -22,6 +22,18 @@ export class VeteranService {
     return this.veteranRepo.find();
   }
 
+  findByKeywordContain(keyword: string) {
+    const qb = this.veteranRepo.createQueryBuilder();
+
+    return qb
+      .select('*')
+      .where(`LOWER(name) LIKE '%${keyword.toLowerCase()}%'`)
+      .orWhere(`LOWER(field) LIKE '%${keyword.toLowerCase()}%'`)
+      .orWhere(`LOWER(tag) LIKE '%${keyword.toLowerCase()}%'`)
+      .orWhere(`LOWER(short_description) LIKE '%${keyword.toLowerCase()}%'`)
+      .getRawMany();
+  }
+
   findOne(veteranUuid: string) {
     return this.veteranRepo.findOne({ where: { uuid: veteranUuid } });
   }

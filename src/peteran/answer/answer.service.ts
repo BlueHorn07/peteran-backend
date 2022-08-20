@@ -24,6 +24,15 @@ export class AnswerService {
     return this.answerRepo.findOne({ where: { uuid: answerUuid } });
   }
 
+  findByKeywordContain(keyword: string) {
+    const qb = this.answerRepo.createQueryBuilder();
+
+    return qb
+      .select('*')
+      .where(`LOWER(content) LIKE '%${keyword.toLowerCase()}%'`)
+      .getRawMany();
+  }
+
   delete(answerUuid: string) {
     return this.answerRepo.delete(answerUuid);
   }

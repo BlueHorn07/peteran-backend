@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository } from "typeorm";
 import { QuestionEntity } from './question.entity';
 import { QuestionCreateDto, QuestionUpdateDto } from "./question.dto";
 
@@ -27,6 +27,16 @@ export class QuestionService {
 
   findAll() {
     return this.questionRepo.find();
+  }
+
+  findByKeywordContain(keyword: string) {
+    const qb = this.questionRepo.createQueryBuilder();
+
+    return qb
+      .select('*')
+      .where(`LOWER(title) LIKE '%${keyword.toLowerCase()}%'`)
+      .orWhere(`LOWER(content) LIKE '%${keyword.toLowerCase()}%'`)
+      .getRawMany();
   }
 
   findOne(questionUuid: string) {

@@ -9,6 +9,7 @@ import { VeteranEntity } from "./veteran.entity";
     TypeOrmModule.forFeature([VeteranEntity])
   ],
   controllers: [VeteranController],
-  providers: [VeteranService]
+  providers: [VeteranService],
+  exports: [VeteranService],
 })
 export class VeteranModule {}

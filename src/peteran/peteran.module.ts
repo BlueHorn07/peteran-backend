@@ -7,6 +7,7 @@ import { AnswerModule } from "./answer/answer.module";
 import { ReservationModule } from "./reservation/reservation.module";
 import { ConsultItemModule } from "./consult-item/consult-item.module";
 import { QuestionModule } from "./question/question.module";
+import { SearchModule } from "./search/search.module";
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { QuestionModule } from "./question/question.module";
     QuestionModule,
     ReservationModule,
     ConsultItemModule,
+    SearchModule,
   ]
 })
 export class PeteranModule {}
