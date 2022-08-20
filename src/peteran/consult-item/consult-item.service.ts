@@ -20,22 +20,22 @@ export class ConsultItemService {
     return this.consultItemRepo.find();
   }
 
-  findOne(consultItemUuid: string) {
-    return this.consultItemRepo.findOne({ where: { uuid: consultItemUuid } });
+  findOne(consultItemId: number) {
+    return this.consultItemRepo.findOne({ where: { id: consultItemId } });
   }
 
-  delete(consultItemUuid: string) {
-    return this.consultItemRepo.delete(consultItemUuid);
+  delete(consultItemId: number) {
+    return this.consultItemRepo.delete(consultItemId);
   }
 
-  findByVeteran(veteranUuid: string) {
+  findByVeteran(veteranId: number) {
     return this.consultItemRepo.find({
-      where: { veteran_uuid: veteranUuid },
+      where: { veteran_id: veteranId },
     });
   }
 
-  update(consultItemUuid: string, consultItemDto: ConsultItemUpdateDto) {
+  update(consultItemId: number, consultItemDto: ConsultItemUpdateDto) {
     consultItemDto['updated_at'] = new Date();
-    return this.consultItemRepo.update(consultItemUuid, consultItemDto);
+    return this.consultItemRepo.update(consultItemId, consultItemDto);
   }
 }

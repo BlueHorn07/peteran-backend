@@ -23,16 +23,16 @@ export class VeteranController {
     return this.veteranService.findAll();
   }
 
-  @Delete(':veteranUuid')
-  deleteVeteran(@Param('veteranUuid') veteranUuid: string) {
-    return this.veteranService.delete(veteranUuid);
+  @Delete(':veteranId')
+  deleteVeteran(@Param('veteranId') veteranId: number) {
+    return this.veteranService.delete(veteranId);
   }
 
-  @Put(':veteranUuid')
+  @Put(':veteranId')
   updateVeteran(
-    @Param('veteranUuid') veteranUuid: string,
+    @Param('veteranId') veteranId: number,
     @Body() veteranDto: VeteranUpdateDto,
   ) {
-    return this.veteranService.update(veteranUuid, veteranDto)
+    return this.veteranService.update(veteranId, veteranDto)
   }
 }

@@ -23,16 +23,16 @@ export class AnswerController {
     return this.answerService.findAll();
   }
 
-  @Delete(':answerUuid')
-  deleteAnswer(@Param('answerUuid') answerUuid: string) {
-    return this.answerService.delete(answerUuid);
+  @Delete(':answerId')
+  deleteAnswer(@Param('answerId') answerId: number) {
+    return this.answerService.delete(answerId);
   }
 
-  @Put(':answerUuid')
+  @Put(':answerId')
   updateAnswer(
-    @Param('answerUuid') answerUuid: string,
+    @Param('answerId') answerId: number,
     @Body() answerDto: AnswerUpdateDto,
   ) {
-    return this.answerService.update(answerUuid, answerDto)
+    return this.answerService.update(answerId, answerDto)
   }
 }

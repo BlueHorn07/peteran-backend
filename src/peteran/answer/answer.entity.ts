@@ -9,14 +9,14 @@ import {
   name: 'answer',
 })
 export class AnswerEntity {
-  @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ nullable: false })
-  question_uuid: string; // Uuid of answering question
+  question_id: number; // Id of answering question
 
   @Column({ nullable: false })
-  veteran_uuid: string; // Uuid of veteran
+  veteran_id: number; // Id of veteran
 
   @Column({ nullable: false })
   content: string;

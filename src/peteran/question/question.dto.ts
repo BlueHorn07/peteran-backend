@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class QuestionCreateDto {
   @ApiProperty()
-  readonly author_uuid: string;
+  readonly author_id: number;
 
   @ApiProperty()
   readonly title: string;

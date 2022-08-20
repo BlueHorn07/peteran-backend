@@ -28,23 +28,23 @@ export class UserService {
       take: 1,
       skip: randomIdx,
     });
-    return ret[0];
+    return ret[0]; 
   }
 
   findAll() {
     return this.userRepo.find();
   }
 
-  findOne(userUuid: string) {
-    return this.userRepo.findOne({ where: { uuid: userUuid } });
+  findOne(userId: number) {
+    return this.userRepo.findOne({ where: { id: userId } });
   }
 
-  delete(userUuid: string) {
-    return this.userRepo.delete(userUuid);
+  delete(userId: number) {
+    return this.userRepo.delete(userId);
   }
 
-  update(userUuid: string, userDto: UserUpdateDto) {
+  update(userId: number, userDto: UserUpdateDto) {
     userDto['updated_at'] = new Date();
-    return this.userRepo.update(userUuid, userDto);
+    return this.userRepo.update(userId, userDto);
   }
 }

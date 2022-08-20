@@ -48,7 +48,7 @@ export class InitialSetupController {
     [...Array(initialPetCount).keys()].map(async () => {
       const randomUser = await this.userService.randomPick();
       await this.petService.save({
-        owner_uuid: randomUser.uuid,
+        owner_id: randomUser.id,
         name: sample(PetPool.names),
         breed: sample(PetPool.breeds),
         age: randomInteger(2, 16),
@@ -100,7 +100,7 @@ export class InitialSetupController {
       const { title, content } = sample(QuestionPool.titleAndContents);
       const randomUser = await this.userService.randomPick();
       await this.questionService.save({
-        author_uuid: randomUser.uuid,
+        author_id: randomUser.id,
         title: title,
         content: content,
       });
@@ -115,8 +115,8 @@ export class InitialSetupController {
       const randomQuestion = await this.questionService.randomPick();
       const randomVeteran = await this.veteranService.randomPick();
       await this.answerService.save({
-        question_uuid: randomQuestion.uuid,
-        veteran_uuid: randomVeteran.uuid,
+        question_id: randomQuestion.id,
+        veteran_id: randomVeteran.id,
         content: sample(AnswerPool.contents),
       });
     });

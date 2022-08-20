@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class ConsultItemCreateDto {
   @ApiProperty()
-  readonly veteran_uuid: string;
+  readonly veteran_id: number;
 
   @ApiProperty()
   readonly type: string;
@@ -16,7 +16,7 @@ export class ConsultItemCreateDto {
 
 export class ConsultItemUpdateDto {
   @ApiProperty()
-  readonly veteran_uuid: string;
+  readonly veteran_id: number;
 
   @ApiProperty()
   readonly type: string;

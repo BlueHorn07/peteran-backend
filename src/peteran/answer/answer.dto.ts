@@ -2,10 +2,10 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class AnswerCreateDto {
   @ApiProperty()
-  readonly question_uuid: string;
+  readonly question_id: number;
 
   @ApiProperty()
-  readonly veteran_uuid: string;
+  readonly veteran_id: number;
 
   @ApiProperty()
   readonly content: string;

@@ -24,8 +24,8 @@ export class AnswerService {
     return this.answerRepo.find();
   }
 
-  findOne(answerUuid: string) {
-    return this.answerRepo.findOne({ where: { uuid: answerUuid } });
+  findOne(answerId: number) {
+    return this.answerRepo.findOne({ where: { id: answerId } });
   }
 
   findByKeywordContain(keyword: string) {
@@ -37,24 +37,24 @@ export class AnswerService {
       .getRawMany();
   }
 
-  delete(answerUuid: string) {
-    return this.answerRepo.delete(answerUuid);
+  delete(answerId: number) {
+    return this.answerRepo.delete(answerId);
   }
 
-  findByVeteran(veteranUuid: string) {
+  findByVeteran(veteranId: number) {
     return this.answerRepo.find({
-      where: { veteran_uuid: veteranUuid },
+      where: { veteran_id: veteranId },
     });
   }
 
-  findByQuestion(questionUuid: string) {
+  findByQuestion(questionId: number) {
     return this.answerRepo.find({
-      where: { question_uuid: questionUuid },
+      where: { question_id: questionId },
     });
   }
 
-  update(answerUuid: string, answerDto: AnswerUpdateDto) {
+  update(answerId: number, answerDto: AnswerUpdateDto) {
     answerDto['updated_at'] = new Date();
-    return this.answerRepo.update(answerUuid, answerDto);
+    return this.answerRepo.update(answerId, answerDto);
   }
 }

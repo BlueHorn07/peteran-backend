@@ -9,8 +9,8 @@ import {
   name: 'veteran',
 })
 export class VeteranEntity {
-  @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ nullable: false })
   name: string;

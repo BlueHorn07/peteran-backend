@@ -23,23 +23,23 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  @Get(':userUuid')
+  @Get(':userId')
   getUserById(
-    @Param('userUuid') userUuid: string
+    @Param('userId') userId: number
   ) {
-    return this.userService.findOne(userUuid);
+    return this.userService.findOne(userId);
   }
 
-  @Delete(':userUuid')
-  deleteUser(@Param('userUuid') userUuid: string) {
-    return this.userService.delete(userUuid);
+  @Delete(':userId')
+  deleteUser(@Param('userId') userId: number) {
+    return this.userService.delete(userId);
   }
 
-  @Put(':userUuid')
+  @Put(':userId')
   updateUser(
-    @Param('userUuid') userUuid: string,
+    @Param('userId') userId: number,
     @Body() userDto: UserUpdateDto
   ) {
-    return this.userService.update(userUuid, userDto)
+    return this.userService.update(userId, userDto)
   }
 }

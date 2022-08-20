@@ -24,21 +24,21 @@ export class PetService {
     return this.petRepo.find();
   }
 
-  findAllByOwner(ownerUuid: string) {
+  findAllByOwner(ownerId: number) {
     return this.petRepo.find({
-      where: { owner_uuid: ownerUuid },
+      where: { owner_id: ownerId },
     });
   }
 
-  findOne(petUuid: string) {
-    return this.petRepo.findOne({ where: { uuid: petUuid } });
+  findOne(petId: number) {
+    return this.petRepo.findOne({ where: { id: petId } });
   }
 
-  delete(petUuid: string) {
-    return this.petRepo.delete(petUuid);
+  delete(petId: number) {
+    return this.petRepo.delete(petId);
   }
 
-  update(petUuid: string, petDto: PetUpdateDto) {
-    return this.petRepo.update(petUuid, petDto);
+  update(petId: number, petDto: PetUpdateDto) {
+    return this.petRepo.update(petId, petDto);
   }
 }

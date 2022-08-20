@@ -23,30 +23,30 @@ export class PetController {
     return this.petService.findAll();
   }
 
-  @Get('owner/:ownerUuid')
+  @Get('owner/:ownerId')
   getAllPetByOwner(
-    @Param('ownerUuid') ownerUuid: string
+    @Param('ownerId') ownerId: number
   ) {
-    return this.petService.findAllByOwner(ownerUuid);
+    return this.petService.findAllByOwner(ownerId);
   }
 
-  @Get(':petUuid')
+  @Get(':petId')
   getPetById(
-    @Param('petUuid') petUuid: string
+    @Param('petId') petId: number
   ) {
-    return this.petService.findOne(petUuid);
+    return this.petService.findOne(petId);
   }
 
-  @Delete(':petUuid')
-  deletePet(@Param('petUuid') petUuid: string) {
-    return this.petService.delete(petUuid);
+  @Delete(':petId')
+  deletePet(@Param('petId') petId: number) {
+    return this.petService.delete(petId);
   }
 
-  @Put(':petUuid')
+  @Put(':petId')
   updatePet(
-    @Param('petUuid') petUuid: string,
+    @Param('petId') petId: number,
     @Body() petDto: PetUpdateDto
   ) {
-    return this.petService.update(petUuid, petDto)
+    return this.petService.update(petId, petDto)
   }
 }

@@ -9,11 +9,11 @@ import {
   name: 'pet',
 })
 export class PetEntity {
-  @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ nullable: false })
-  owner_uuid: string; // uuid of owner
+  owner_id: number; // uuid of owner
 
   @Column({ nullable: false })
   name: string;
@@ -22,7 +22,7 @@ export class PetEntity {
   breed: string; // 품좀
 
   @Column({ nullable: true })
-  age: number; // month
+  age: number; // year
 
   @Column({ nullable: true })
   height: number;

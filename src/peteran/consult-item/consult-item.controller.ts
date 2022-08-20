@@ -23,23 +23,23 @@ export class ConsultItemController {
     return this.consultItemService.findAll();
   }
 
-  @Get('veteran/:veteranUuid')
+  @Get('veteran/:veteranId')
   getAllConsultItemByVeteran(
-    @Param('veteranUuid') veteranUuid: string,
+    @Param('veteranId') veteranId: number,
   ) {
-    return this.consultItemService.findByVeteran(veteranUuid);
+    return this.consultItemService.findByVeteran(veteranId);
   }
   
-  @Delete(':consultItemUuid')
-  deleteConsultItem(@Param('consultItemUuid') consultItemUuid: string) {
-    return this.consultItemService.delete(consultItemUuid);
+  @Delete(':consultItemId')
+  deleteConsultItem(@Param('consultItemId') consultItemId: number) {
+    return this.consultItemService.delete(consultItemId);
   }
 
-  @Put(':consultItemUuid')
+  @Put(':consultItemId')
   updateConsultItem(
-    @Param('consultItemUuid') consultItemUuid: string,
+    @Param('consultItemId') consultItemId: number,
     @Body() consultItemDto: ConsultItemUpdateDto,
   ) {
-    return this.consultItemService.update(consultItemUuid, consultItemDto)
+    return this.consultItemService.update(consultItemId, consultItemDto)
   }
 }

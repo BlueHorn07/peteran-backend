@@ -9,11 +9,11 @@ import {
   name: 'consult_item',
 })
 export class ConsultItemEntity {
-  @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ nullable: false })
-  veteran_uuid: string;
+  veteran_id: number;
 
   @Column({ nullable: false })
   type: string;

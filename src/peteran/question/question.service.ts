@@ -32,13 +32,13 @@ export class QuestionService {
   }
 
 
-  update(questionUuid: string, questionDto: QuestionUpdateDto) {
+  update(questionId: number, questionDto: QuestionUpdateDto) {
     questionDto['updated_at'] = new Date();
-    return this.questionRepo.update(questionUuid, questionDto);
+    return this.questionRepo.update(questionId, questionDto);
   }
 
-  delete(questionUuid: string) {
-    return this.questionRepo.delete(questionUuid);
+  delete(questionId: number) {
+    return this.questionRepo.delete(questionId);
   }
 
   findAll() {
@@ -56,15 +56,15 @@ export class QuestionService {
       .getRawMany();
   }
 
-  findOne(questionUuid: string) {
+  findOne(questionId: number) {
     return this.questionRepo.findOne({
-      where: { uuid: questionUuid },
+      where: { id: questionId },
     });
   }
 
-  findByAuthor(authorUuid: string) {
+  findByAuthor(authorId: number) {
     return this.questionRepo.find({
-      where: { author_uuid: authorUuid },
+      where: { author_id: authorId },
     });
   }
 }

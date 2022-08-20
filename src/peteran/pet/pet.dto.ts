@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class PetCreateDto {
   @ApiProperty()
-  readonly owner_uuid: string;
+  readonly owner_id: number;
 
   @ApiProperty()
   readonly name: string;

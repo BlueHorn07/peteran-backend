@@ -20,7 +20,7 @@ export class SearchService {
     searchResult['answer']
       = await this.answerService.findByKeywordContain(keyword);
     searchResult['veteran']
-      = await this.veteranService.findByKeywordContain(keyword);
+      = await this.veteranService.findByKeywordContain('all', keyword);
 
     return searchResult;
   }

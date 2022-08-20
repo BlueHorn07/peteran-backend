@@ -23,30 +23,30 @@ export class ReservationController {
     return this.reservationService.findAll();
   }
 
-  @Get('veteran/:veteranUuid')
+  @Get('veteran/:veteranId')
   getAllReservationByVeteran(
-    @Param('veteranUuid') veteranUuid: string
+    @Param('veteranId') veteranId: number
   ) {
-    return this.reservationService.findAllByVeteran(veteranUuid);
+    return this.reservationService.findAllByVeteran(veteranId);
   }
 
-  @Get('consultee/:consulteeUuid')
+  @Get('consultee/:consulteeId')
   getAllReservationByConsultee(
-    @Param('consulteeUuid') consulteeUuid: string
+    @Param('consulteeId') consulteeId: number
   ) {
-    return this.reservationService.findAllByConsultee(consulteeUuid);
+    return this.reservationService.findAllByConsultee(consulteeId);
   }
 
-  @Get('consultItem/:consultItemUuid')
+  @Get('consultItem/:consultItemId')
   getAllReservationByConsultItem(
-    @Param('consultItemUuid') consultItemUuid: string
+    @Param('consultItemId') consultItemId: number
   ) {
-    return this.reservationService.findAllByConsultItem(consultItemUuid);
+    return this.reservationService.findAllByConsultItem(consultItemId);
   }
 
-  @Delete(':reservationUuid')
-  deleteReservation(@Param('reservationUuid') reservationUuid: string) {
-    return this.reservationService.delete(reservationUuid);
+  @Delete(':reservationId')
+  deleteReservation(@Param('reservationId') reservationId: number) {
+    return this.reservationService.delete(reservationId);
   }
 
   // TODO: 예약 상태의 변경

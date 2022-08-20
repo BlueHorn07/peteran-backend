@@ -37,7 +37,7 @@ export class VeteranService {
     return this.veteranRepo.find();
   }
 
-  findByKeywordContain(keyword: string) {
+  findByKeywordContain(type: string, keyword: string, take = 10) {
     const qb = this.veteranRepo.createQueryBuilder();
 
     return qb
@@ -46,19 +46,21 @@ export class VeteranService {
       .orWhere(`LOWER(field) LIKE '%${keyword.toLowerCase()}%'`)
       .orWhere(`LOWER(tag) LIKE '%${keyword.toLowerCase()}%'`)
       .orWhere(`LOWER(short_description) LIKE '%${keyword.toLowerCase()}%'`)
+      .andWhere(type === 'all' ? 'TURE' : `type = '${type}'`)
+      .limit(take)
       .getRawMany();
   }
 
-  findOne(veteranUuid: string) {
-    return this.veteranRepo.findOne({ where: { uuid: veteranUuid } });
+  findOne(veteranId: number) {
+    return this.veteranRepo.findOne({ where: { id: veteranId } });
   }
 
-  delete(veteranUuid: string) {
-    return this.veteranRepo.delete(veteranUuid);
+  delete(veteranId: number) {
+    return this.veteranRepo.delete(veteranId);
   }
 
-  update(veteranUuid: string, veteranDto: VeteranUpdateDto) {
+  update(veteranId: number, veteranDto: VeteranUpdateDto) {
     veteranDto['updated_at'] = new Date();
-    return this.veteranRepo.update(veteranUuid, veteranDto);
+    return this.veteranRepo.update(veteranId, veteranDto);
   }
 }

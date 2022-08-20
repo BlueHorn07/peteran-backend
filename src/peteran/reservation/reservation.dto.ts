@@ -8,11 +8,11 @@ export class ReservationCreateDto {
   readonly end_datetime: Date;
 
   @ApiProperty()
-  readonly veteran_uuid: string;
+  readonly veteran_id: number;
 
   @ApiProperty()
-  readonly consultee_uuid: string;
+  readonly consultee_id: number;
 
   @ApiProperty()
-  readonly consult_item_uuid: string;
+  readonly consult_item_id: number;
 }

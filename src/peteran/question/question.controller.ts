@@ -24,16 +24,16 @@ export class QuestionController {
     return this.questionService.findAll();
   }
 
-  @Delete(':questionUuid')
-  deleteQuestion(@Param('questionUuid') questionUuid: string) {
-    return this.questionService.delete(questionUuid);
+  @Delete(':questionId')
+  deleteQuestion(@Param('questionId') questionId: number) {
+    return this.questionService.delete(questionId);
   }
 
-  @Put(':questionUuid')
+  @Put(':questionId')
   updateQuestion(
-    @Param('questionUuid') questionUuid: string,
+    @Param('questionId') questionId: number,
     @Body() questionDto: QuestionUpdateDto,
   ) {
-    return this.questionService.update(questionUuid, questionDto)
+    return this.questionService.update(questionId, questionDto)
   }
 }

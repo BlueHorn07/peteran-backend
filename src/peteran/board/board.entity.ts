@@ -9,11 +9,11 @@ import {
   name: 'board',
 })
 export class BoardEntity {
-  @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ nullable: false })
-  author_uuid: string;
+  author_id: number;
 
   @Column({ nullable: false })
   title: string;

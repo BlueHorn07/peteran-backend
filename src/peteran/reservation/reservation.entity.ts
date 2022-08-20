@@ -10,8 +10,8 @@ import { ReservationStatus } from "./reservation.type";
   name: 'reservation',
 })
 export class ReservationEntity {
-  @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ nullable: false })
   start_datetime: Date;
@@ -23,13 +23,13 @@ export class ReservationEntity {
   date: string; // YYYY-MM-DD format of `start_datetime`
 
   @Column({ nullable: false })
-  veteran_uuid: string;
+  veteran_id: number;
 
   @Column({ nullable: false })
-  consultee_uuid: string;
+  consultee_id: number;
 
   @Column({ nullable: false })
-  consult_item_uuid: string;
+  consult_item_id: number;
 
   @Column({ nullable: false })
   consult_type: string; // type of consult item

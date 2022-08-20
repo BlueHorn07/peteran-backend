@@ -20,29 +20,29 @@ export class ReservationService {
     return this.reservationRepo.find();
   }
 
-  findAllByVeteran(veteranUuid: string) {
+  findAllByVeteran(veteranId: number) {
     return this.reservationRepo.find({
-      where: {veteran_uuid: veteranUuid}
+      where: {veteran_id: veteranId}
     });
   }
 
-  findAllByConsultee(consulteeUuid: string) {
+  findAllByConsultee(consulteeId: number) {
     return this.reservationRepo.find({
-      where: {consultee_uuid: consulteeUuid}
+      where: {consultee_id: consulteeId}
     });
   }
 
-  findAllByConsultItem(consultItemUuid: string) {
+  findAllByConsultItem(consultItemId: number) {
     return this.reservationRepo.find({
-      where: {consult_item_uuid: consultItemUuid}
+      where: {consult_item_id: consultItemId}
     });
   }
 
-  findOne(reservationUuid: string) {
-    return this.reservationRepo.findOne({ where: { uuid: reservationUuid } });
+  findOne(reservationId: number) {
+    return this.reservationRepo.findOne({ where: { id: reservationId } });
   }
 
-  delete(reservationUuid: string) {
-    return this.reservationRepo.delete(reservationUuid);
+  delete(reservationId: number) {
+    return this.reservationRepo.delete(reservationId);
   }
 }
