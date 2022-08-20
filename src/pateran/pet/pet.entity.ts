@@ -37,5 +37,5 @@ export class PetEntity {
   created_at: Date;
 
   @Column()
-  last_login_at: Date;
+  updated_at: Date;
 }
