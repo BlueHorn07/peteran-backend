@@ -5,6 +5,12 @@ export class VeteranCreateDto {
   readonly name: string;
 
   @ApiProperty()
+  readonly type: string; // vet, trainer
+
+  @ApiProperty()
+  readonly location: string;
+
+  @ApiProperty()
   readonly email?: string;
 
   @ApiProperty()
@@ -15,9 +21,6 @@ export class VeteranCreateDto {
 
   @ApiProperty()
   readonly short_description: string;
-
-  @ApiProperty()
-  readonly tag: string[];
 }
 
 export class VeteranUpdateDto {
@@ -25,6 +28,9 @@ export class VeteranUpdateDto {
   readonly name: string;
 
   @ApiProperty()
+  readonly location: string;
+
+  @ApiProperty()
   readonly email?: string;
 
   @ApiProperty()
@@ -35,7 +41,4 @@ export class VeteranUpdateDto {
 
   @ApiProperty()
   readonly short_description: string;
-
-  @ApiProperty()
-  readonly tag: string[];
 }

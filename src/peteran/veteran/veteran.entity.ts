@@ -21,14 +21,17 @@ export class VeteranEntity {
   @Column({ nullable: false })
   phone: string;
 
+  @Column({ nullable: false })
+  location: string;
+
+  @Column({ nullable: false })
+  type: string; // vet, trainer
+
   @Column({ nullable: false, type: 'simple-array' })
   field: string[]; // 전문 분야
 
   @Column({ type: 'text', nullable: true })
   short_description: string;
-
-  @Column({ nullable: true, type: 'simple-array' })
-  tag: string[];
 
   @CreateDateColumn()
   created_at: Date;

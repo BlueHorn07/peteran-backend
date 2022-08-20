@@ -16,6 +16,10 @@ export class PetService {
     return this.petRepo.save(petDto);
   }
 
+  count() {
+    return this.petRepo.count();
+  }
+
   findAll() {
     return this.petRepo.find();
   }

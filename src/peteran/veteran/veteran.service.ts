@@ -18,6 +18,10 @@ export class VeteranService {
     return this.veteranRepo.save(veteranDto);
   }
 
+  count () {
+    return this.veteranRepo.count();
+  }
+
   findAll() {
     return this.veteranRepo.find();
   }

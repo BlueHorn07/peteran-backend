@@ -5,6 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { PeteranModule } from './peteran/peteran.module';
 import configuration from "./config/configurations";
+import { InitialSetupModule } from "./initial-setup/initial-setup.module";
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import configuration from "./config/configurations";
       useFactory: (configService: ConfigService) => configService.get("database"),
       inject: [ConfigService]
     }),
-    PeteranModule
+    PeteranModule,
+    InitialSetupModule,
   ],
   controllers: [AppController],
   providers: [AppService]
