@@ -13,7 +13,7 @@ async function bootstrap() {
   });
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('YOUR_SWAGGER_TITLE')
+    .setTitle('Pateran Backend API')
     .setDescription('YOUR_SWAGGER_DESCRIPTION')
     .setVersion('1.0')
     .addTag('YOUR_TAG')

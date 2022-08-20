@@ -18,11 +18,11 @@ export class VeteranEntity {
   @Column({ nullable: true })
   email: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   phone: string;
 
-  @Column({ nullable: true })
-  field: string; // 전문 분야
+  @Column({ nullable: false, type: 'simple-array' })
+  field: string[]; // 전문 분야
 
   @Column({ type: 'text', nullable: true })
   short_description: string;
@@ -32,6 +32,9 @@ export class VeteranEntity {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @Column()
+  updated_at: Date;
 
   @Column()
   last_login_at: Date;
