@@ -6,6 +6,7 @@ import { BoardModule } from "./board/board.module";
 import { AnswerModule } from "./answer/answer.module";
 import { ReservationModule } from "./reservation/reservation.module";
 import { ConsultItemModule } from "./consult-item/consult-item.module";
+import { QuestionModule } from "./question/question.module";
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ConsultItemModule } from "./consult-item/consult-item.module";
     PetModule,
     BoardModule,
     AnswerModule,
+    QuestionModule,
     ReservationModule,
     ConsultItemModule,
   ]

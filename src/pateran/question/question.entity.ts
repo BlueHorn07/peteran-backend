@@ -25,5 +25,5 @@ export class QuestionEntity {
   created_at: Date;
 
   @Column()
-  last_login_at: Date;
+  updated_at: Date;
 }
