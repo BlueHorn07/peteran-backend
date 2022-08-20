@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
 } from 'typeorm';
+import { ReservationStatus } from "./reservation.type";
 
 @Entity({
   name: 'reservation',
@@ -32,6 +33,9 @@ export class ReservationEntity {
 
   @Column({ nullable: false })
   consult_type: string; // type of consult item
+
+  @Column({ nullable: true, default: ReservationStatus.notyet })
+  status: ReservationStatus;
 
   @Column({ nullable: true })
   veteran_rate: number;

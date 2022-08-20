@@ -49,4 +49,6 @@ export class ReservationController {
     return this.reservationService.delete(reservationUuid);
   }
 
+  // TODO: 예약 상태의 변경
+
 }
