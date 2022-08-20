@@ -10,6 +10,7 @@ import { ReservationEntity } from "./reservation.entity";
     TypeOrmModule.forFeature([ReservationEntity])
   ],
   controllers: [ReservationController],
-  providers: [ReservationService]
+  providers: [ReservationService],
+  exports: [ReservationService],
 })
 export class ReservationModule {}

@@ -9,7 +9,8 @@ import { ConsultItemEntity } from "./consult-item.entity";
     TypeOrmModule.forFeature([ConsultItemEntity])
   ],
   providers: [ConsultItemService],
-  controllers: [ConsultItemController]
+  controllers: [ConsultItemController],
+  exports: [ConsultItemService],
 })
 export class ConsultItemModule {
 

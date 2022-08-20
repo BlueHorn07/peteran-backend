@@ -10,10 +10,12 @@ import { ReservationModule } from "../peteran/reservation/reservation.module";
 
 @Module({
   imports: [
-    UserModule, PetModule,
+    UserModule,
+    PetModule,
     VeteranModule,
     ConsultItemModule,
-    QuestionModule, AnswerModule,
+    QuestionModule,
+    AnswerModule,
     ReservationModule
   ],
   controllers: [InitialSetupController],

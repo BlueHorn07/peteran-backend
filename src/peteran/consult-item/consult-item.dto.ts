@@ -5,7 +5,7 @@ export class ConsultItemCreateDto {
   readonly veteran_id: number;
 
   @ApiProperty()
-  readonly type: string;
+  readonly type: string; // phone, zoom, visit
 
   @ApiProperty()
   readonly price: number;
@@ -19,7 +19,7 @@ export class ConsultItemUpdateDto {
   readonly veteran_id: number;
 
   @ApiProperty()
-  readonly type: string;
+  readonly type: string; // phone, zoom, visit
 
   @ApiProperty()
   readonly price: number;

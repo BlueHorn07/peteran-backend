@@ -16,7 +16,7 @@ export class ConsultItemEntity {
   veteran_id: number;
 
   @Column({ nullable: false })
-  type: string;
+  type: string; // phone, zoom, visit
 
   @Column({ nullable: true })
   price: number;

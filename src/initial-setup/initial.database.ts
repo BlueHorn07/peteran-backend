@@ -111,3 +111,8 @@ export const AnswerPool = {
     '즉시 수술이 필요합니다. 제 연락처로 연락 부탁드립니다.',
   ]
 }
+
+export const ConsultItemPool = {
+  minutes: [15, 15, 15, 20, 20, 20, 30, 30, 60],
+  price: [15000, 20000, 35000, 40000],
+}

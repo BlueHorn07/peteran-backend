@@ -8,7 +8,7 @@ export class ReservationCreateDto {
   readonly end_datetime: Date;
 
   @ApiProperty()
-  readonly veteran_id: number;
+  readonly veteran_id: number; // 중복 저장
 
   @ApiProperty()
   readonly consultee_id: number;

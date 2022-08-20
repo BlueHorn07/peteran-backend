@@ -1,20 +1,23 @@
 import { Controller, Get } from '@nestjs/common';
 import { UserService } from '../peteran/user/user.service';
 import {
-  AnswerPool,
+  AnswerPool, ConsultItemPool,
   EmailPool,
   NamePool,
   PetPool,
   QuestionPool,
   TrainerPool,
-  VetPool,
-} from './initial.database';
+  VetPool
+} from "./initial.database";
 import { ApiTags } from '@nestjs/swagger';
+import * as moment from 'moment';
 import { randomInteger, sample } from '../utils/randomize';
 import { PetService } from '../peteran/pet/pet.service';
 import { VeteranService } from '../peteran/veteran/veteran.service';
 import { QuestionService } from '../peteran/question/question.service';
 import { AnswerService } from '../peteran/answer/answer.service';
+import { ConsultItemService } from "../peteran/consult-item/consult-item.service";
+import { ReservationService } from "../peteran/reservation/reservation.service";
 
 @ApiTags('initial-setup')
 @Controller('initial-setup')
@@ -25,6 +28,8 @@ export class InitialSetupController {
     private readonly veteranService: VeteranService,
     private readonly questionService: QuestionService,
     private readonly answerService: AnswerService,
+    private readonly consultItemService: ConsultItemService,
+    private readonly reservationService: ReservationService,
   ) {}
 
   @Get('user')
@@ -122,5 +127,41 @@ export class InitialSetupController {
     });
 
     return this.answerService.count();
+  }
+
+  @Get('consult-item')
+  async setupConsultItem() {
+    const veterans = await this.veteranService.findAll();
+    for (const veteran of veterans) {
+      await this.consultItemService.save({
+        veteran_id: veteran.id,
+        type: 'zoom',
+        minutes_period: sample(ConsultItemPool.minutes),
+        price: sample(ConsultItemPool.price)
+      });
+    }
+    return this.consultItemService.count();
+  }
+
+  @Get('reservation')
+  async setupReservation() {
+    [...Array(100).keys()].map(async () => {
+      const randomUser = await this.userService.randomPick();
+      const randomConsultItem = await this.consultItemService.randomPick();
+      const timeSelections = ['00', '15', '30', '45'];
+      const randomStartDatetime = moment()
+        .add(randomInteger(0, 120), 'hour')
+        .format(`YYYY-MM-DD hh:${sample(timeSelections)}:00`);
+      const endDatetime = moment(randomStartDatetime)
+        .add(randomConsultItem.minutes_period, 'minutes')
+        .format('YYYY-MM-DD hh:mm:00');
+      await this.reservationService.save({
+        start_datetime: new Date(randomStartDatetime),
+        end_datetime: new Date(endDatetime),
+        veteran_id: randomConsultItem.veteran_id,
+        consultee_id: randomUser.id,
+        consult_item_id: randomConsultItem.id,
+      });
+    });
   }
 }

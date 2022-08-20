@@ -19,7 +19,7 @@ export class VeteranService {
     return this.veteranRepo.save(veteranDto);
   }
 
-  count () {
+  count() {
     return this.veteranRepo.count();
   }
 
