@@ -20,4 +20,4 @@ import { QuestionModule } from "./question/question.module";
     ConsultItemModule,
   ]
 })
-export class PateranModule {}
+export class PeteranModule {}

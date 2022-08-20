@@ -3,7 +3,7 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { PateranModule } from './pateran/pateran.module';
+import { PeteranModule } from './peteran/peteran.module';
 import configuration from "./config/configurations";
 
 @Module({
@@ -16,7 +16,7 @@ import configuration from "./config/configurations";
       useFactory: (configService: ConfigService) => configService.get("database"),
       inject: [ConfigService]
     }),
-    PateranModule
+    PeteranModule
   ],
   controllers: [AppController],
   providers: [AppService]
