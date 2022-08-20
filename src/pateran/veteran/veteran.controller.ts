@@ -12,24 +12,24 @@ export class VeteranController {
   }
 
   @Post()
-  createQuestion(
+  createVeteran(
     @Body() veteranDto: VeteranCreateDto
   ) {
     return this.veteranService.save(veteranDto);
   }
 
   @Get()
-  getAllQuestion() {
+  getAllVeteran() {
     return this.veteranService.findAll();
   }
 
   @Delete(':veteranUuid')
-  deleteQuestion(@Param('veteranUuid') veteranUuid: string) {
+  deleteVeteran(@Param('veteranUuid') veteranUuid: string) {
     return this.veteranService.delete(veteranUuid);
   }
 
   @Put(':veteranUuid')
-  updateQuestion(
+  updateVeteran(
     @Param('veteranUuid') veteranUuid: string,
     @Body() veteranDto: VeteranUpdateDto,
   ) {
