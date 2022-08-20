@@ -6,17 +6,17 @@ import {
 } from 'typeorm';
 
 @Entity({
-  name: 'question',
+  name: 'answer',
 })
-export class QuestionEntity {
+export class AnswerEntity {
   @PrimaryGeneratedColumn('uuid')
   uuid: string;
 
   @Column({ nullable: false })
-  author_uuid: string; // Uuid of user
+  question_uuid: string; // Uuid of answering question
 
   @Column({ nullable: false })
-  title: string;
+  veteran_uuid: string; // Uuid of veteran
 
   @Column({ nullable: false })
   content: string;

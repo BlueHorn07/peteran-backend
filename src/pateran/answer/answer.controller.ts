@@ -1,0 +1,38 @@
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { AnswerService } from "../answer/answer.service";
+import { AnswerCreateDto, AnswerUpdateDto } from "../answer/answer.dto";
+import { ApiTags } from "@nestjs/swagger";
+
+@ApiTags('Answer')
+@Controller('answer')
+export class AnswerController {
+  constructor(
+    private readonly answerService: AnswerService,
+  ) {
+  }
+
+  @Post()
+  createAnswer(
+    @Body() answerDto: AnswerCreateDto
+  ) {
+    return this.answerService.save(answerDto);
+  }
+
+  @Get()
+  getAllAnswer() {
+    return this.answerService.findAll();
+  }
+
+  @Delete(':answerUuid')
+  deleteAnswer(@Param('answerUuid') answerUuid: string) {
+    return this.answerService.delete(answerUuid);
+  }
+
+  @Put(':answerUuid')
+  updateAnswer(
+    @Param('answerUuid') answerUuid: string,
+    @Body() answerDto: AnswerUpdateDto,
+  ) {
+    return this.answerService.update(answerUuid, answerDto)
+  }
+}

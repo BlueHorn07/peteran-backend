@@ -1,20 +1,17 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class QuestionCreateDto {
+export class AnswerCreateDto {
   @ApiProperty()
-  readonly author_uuid: string;
+  readonly question_uuid: string;
 
   @ApiProperty()
-  readonly title: string;
+  readonly veteran_uuid: string;
 
   @ApiProperty()
   readonly content: string;
 }
 
-export class QuestionUpdateDto {
-  @ApiProperty()
-  readonly title: string;
-
+export class AnswerUpdateDto {
   @ApiProperty()
   readonly content: string;
 }
