@@ -1,6 +1,6 @@
 import { Controller, Get } from "@nestjs/common";
 import { UserService } from "../peteran/user/user.service";
-import { EmailPool, NamePool, PetPool, TrainerPool, VetPool } from "../../asset/initial.database";
+import { EmailPool, NamePool, PetPool, TrainerPool, VetPool } from "./initial.database";
 import { ApiTags } from "@nestjs/swagger";
 import { randomInteger, sample } from "../utils/randomize";
 import { PetService } from "../peteran/pet/pet.service";
