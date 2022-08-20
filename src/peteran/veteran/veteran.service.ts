@@ -44,9 +44,8 @@ export class VeteranService {
       .select('*')
       .where(`LOWER(name) LIKE '%${keyword.toLowerCase()}%'`)
       .orWhere(`LOWER(field) LIKE '%${keyword.toLowerCase()}%'`)
-      .orWhere(`LOWER(tag) LIKE '%${keyword.toLowerCase()}%'`)
       .orWhere(`LOWER(short_description) LIKE '%${keyword.toLowerCase()}%'`)
-      .andWhere(type === 'all' ? 'TURE' : `type = '${type}'`)
+      .andWhere(type === 'all' ? 'TRUE' : `type = '${type}'`)
       .limit(take)
       .getRawMany();
   }
