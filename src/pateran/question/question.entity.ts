@@ -15,6 +15,9 @@ export class QuestionEntity {
   @Column({ nullable: false })
   author_uuid: string; // Uuid of user
 
+  @Column({ nullable: true })
+  pet_uuid: string; // Uuid of pet (it's optional)
+
   @Column({ nullable: false })
   title: string;
 
