@@ -16,6 +16,10 @@ export class AnswerService {
     return this.answerRepo.save(answerDto);
   }
 
+  count() {
+    return this.answerRepo.count();
+  }
+
   findAll() {
     return this.answerRepo.find();
   }
