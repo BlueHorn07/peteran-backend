@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
-import { AnswerService } from "../answer/answer.service";
-import { AnswerCreateDto, AnswerUpdateDto } from "../answer/answer.dto";
+import { AnswerService } from "./answer.service";
+import { AnswerCreateDto, AnswerUpdateDto } from "./answer.dto";
 import { ApiTags } from "@nestjs/swagger";
 
 @ApiTags('Answer')
