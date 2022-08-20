@@ -18,8 +18,14 @@ export class UserEntity {
   @Column({ nullable: true })
   email: string;
 
+  @Column({ nullable: true })
+  phone: string;
+
   @CreateDateColumn()
   created_at: Date;
+
+  @Column()
+  updated_at: Date;
 
   @Column()
   last_login_at: Date;
