@@ -76,7 +76,7 @@ export class SearchController {
     for(const mostVeteran of mostVeterans) {
       const veteranId = mostVeteran.veteran_id;
       const veteran = await this.veteranService.findOne(veteranId);
-      veteran['consult_item'] = await this.consultItemService.findByVeteran(veteranId);
+      veteran['consult_items'] = await this.consultItemService.findByVeteran(veteranId);
       veteran['reservations'] = await this.reservationService.findAllByVeteran(veteranId);
       veterans.push(veteran)
     }
