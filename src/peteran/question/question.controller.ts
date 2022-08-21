@@ -24,6 +24,13 @@ export class QuestionController {
     return this.questionService.findAll();
   }
 
+  @Get(':QuestionId')
+  getOneQuestion(
+    @Param('QuestionId') questionId: number
+  ) {
+    return this.questionService.findOne(questionId);
+  }
+
   @Delete(':questionId')
   deleteQuestion(@Param('questionId') questionId: number) {
     return this.questionService.delete(questionId);

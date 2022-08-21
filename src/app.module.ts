@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { PeteranModule } from './peteran/peteran.module';
 import configuration from "./config/configurations";
 import { InitialSetupModule } from "./initial-setup/initial-setup.module";
+import { QnaModule } from './qna/qna.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { InitialSetupModule } from "./initial-setup/initial-setup.module";
     }),
     PeteranModule,
     InitialSetupModule,
+    QnaModule,
   ],
   controllers: [AppController],
   providers: [AppService]

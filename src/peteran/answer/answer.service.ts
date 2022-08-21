@@ -20,6 +20,16 @@ export class AnswerService {
     return this.answerRepo.count();
   }
 
+  findMostAnsweredQuestion() {
+    const qb = this.answerRepo.createQueryBuilder();
+    return qb
+      .select('question_id')
+      .addSelect('COUNT(*) AS answer_count')
+      .groupBy('1')
+      .orderBy('2')
+      .getRawMany()
+  }
+
   findAll() {
     return this.answerRepo.find();
   }
