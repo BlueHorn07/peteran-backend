@@ -13,6 +13,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'http://3.35.156.67:3000',
       'https://chamroro.github.io',
+      'https://peteran.bluehorn07.dev',
     ],
     credentials: true,
   });
