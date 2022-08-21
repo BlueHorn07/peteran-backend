@@ -20,13 +20,14 @@ export class AnswerService {
     return this.answerRepo.count();
   }
 
-  findMostAnsweredQuestion() {
+  findMostAnsweredQuestion(take = 10) {
     const qb = this.answerRepo.createQueryBuilder();
     return qb
       .select('question_id')
       .addSelect('COUNT(*) AS answer_count')
       .groupBy('1')
       .orderBy('2')
+      .limit(take)
       .getRawMany()
   }
 

@@ -20,6 +20,18 @@ export class ReservationService {
     return this.reservationRepo.find();
   }
 
+  findMostReservedVeteran(take = 10) {
+    const qb = this.reservationRepo.createQueryBuilder()
+
+    return qb
+      .select('veteran_id')
+      .addSelect('COUNT(*) AS reservation_count')
+      .groupBy('1')
+      .orderBy('2')
+      .limit(take)
+      .getRawMany()
+  }
+
   findAllByVeteran(veteranId: number) {
     return this.reservationRepo.find({
       where: {veteran_id: veteranId}
