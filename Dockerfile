@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm ci --only=production
-RUN npm i -g nest
+RUN npm install -g @nestjs/cli
 RUN npm run build
 
 EXPOSE 4000
