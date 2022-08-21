@@ -5,7 +5,8 @@ WORKDIR /app
 COPY . .
 
 RUN npm ci --only=production
-RUN npm run build
+RUN npm i -g nest
+RUN npm run buildn
 
 EXPOSE 4000
 
