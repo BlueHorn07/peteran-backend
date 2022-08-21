@@ -27,7 +27,7 @@ export class ReservationService {
       .select('veteran_id')
       .addSelect('COUNT(*) AS reservation_count')
       .groupBy('1')
-      .orderBy('2')
+      .orderBy('2', 'DESC')
       .limit(take)
       .getRawMany()
   }

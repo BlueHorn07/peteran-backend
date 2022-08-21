@@ -26,7 +26,7 @@ export class AnswerService {
       .select('question_id')
       .addSelect('COUNT(*) AS answer_count')
       .groupBy('1')
-      .orderBy('2')
+      .orderBy('2', 'DESC')
       .limit(take)
       .getRawMany()
   }
