@@ -8,7 +8,12 @@ async function bootstrap() {
 
   app.use(cookieParser());
   app.enableCors({
-    origin: ['http://localhost:8000', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:8000',
+      'http://localhost:3000',
+      'http://3.35.156.67:3000',
+      'https://chamroro.github.io',
+    ],
     credentials: true,
   });
 
