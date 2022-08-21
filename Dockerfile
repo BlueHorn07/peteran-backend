@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm ci --only=production
 RUN npm i -g nest
-RUN npm run buildn
+RUN npm run build
 
 EXPOSE 4000
 
